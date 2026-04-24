@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Lesson</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .nav-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="slide active">Slide 1: Welcome</div>
+<div class="slide">Slide 2: Lesson</div>
+<div class="slide">Slide 3: Practice</div>
+
+<button class="nav-button" onclick="nextSlide()">→</button>
+
+<a href="game.html">
+  <button class="nav-button" style="right: 80px;">🎮</button>
+</a>
+
+<a href="assessment.html">
+  <button class="nav-button" style="right: 140px;">📝</button>
+</a>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function nextSlide() {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+</script>
+
+</body>
+</html>
